@@ -158,7 +158,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\.gitignore" />
+    <Content Include="App\babel.config.js" />
+    <Content Include="App\package-lock.json" />
     <Content Include="App\package.json" />
+    <Content Include="App\public\favicon.ico" />
+    <Content Include="App\public\index.html" />
+    <Content Include="App\README.md" />
+    <Content Include="App\src\App.vue" />
+    <Content Include="App\src\assets\logo.png" />
+    <Content Include="App\src\components\HelloWorld.vue" />
+    <Content Include="App\src\main.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
