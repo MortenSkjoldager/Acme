@@ -5,3 +5,6 @@ Acme/bin/
 packages/
 Acme/obj/
 Acme.BusinessLogic/obj/
+*.map
+Acme/App/node_modules/
+Acme.BusinessLogic.Test/obj/
