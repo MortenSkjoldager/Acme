@@ -5,7 +5,7 @@
     filenameHashing: false,
     css: {
         extract: {
-            filename: '/css/[name].css'
+            filename: '[name].css'
         }
     },
     configureWebpack: {
@@ -13,7 +13,7 @@
             splitChunks: false
         },
         output: {
-            filename: '/scripts/[name].js'
+            filename: '[name].js'
         },
         resolve: {
             alias: {
