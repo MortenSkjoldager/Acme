@@ -8,3 +8,4 @@ Acme.BusinessLogic/obj/
 *.map
 Acme/App/node_modules/
 Acme.BusinessLogic.Test/obj/
+Acme/dist/

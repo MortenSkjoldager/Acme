@@ -169,6 +169,7 @@
     <Content Include="App\src\assets\logo.png" />
     <Content Include="App\src\components\HelloWorld.vue" />
     <Content Include="App\src\main.js" />
+    <Content Include="App\vue.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
