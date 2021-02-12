@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
-using System.Web.Mvc;
 using Castle.Windsor;
 using Castle.Windsor.Installer;
 
@@ -13,10 +11,10 @@ namespace Acme.BusinessLogic.DependencyInjection
 	public static class Container
     {
 		private static IWindsorContainer _container;
-		
-		public static IWindsorContainer Instance => _container;
-		
+
 		private static object _padlock = new object();
+
+		public static IWindsorContainer Instance => _container;
 		
 		public static void Initialize()
 		{
@@ -28,7 +26,7 @@ namespace Acme.BusinessLogic.DependencyInjection
 					{
 						_container = new WindsorContainer();
 						
-						//Let each module / assembly register their own dependencies.
+						//Let each project/assembly register their own dependencies.
 						foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.Contains("Acme")))
 						{
 							_container.Install(FromAssembly.Named(assembly.FullName));
