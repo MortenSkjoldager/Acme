@@ -5,3 +5,5 @@ Acme/bin/
 packages/
 Acme/obj/
 Acme.BusinessLogic/obj/
+*.cs
+Acme.BusinessLogic.Test/obj/
