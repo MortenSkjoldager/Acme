@@ -147,6 +147,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EnterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DependencyInjection\ControllersInstaller.cs" />
     <Compile Include="DependencyInjection\DependencyScope.cs" />
@@ -172,6 +173,7 @@
     <Content Include="App\vue.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Views\Enter\Index.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
