@@ -6,7 +6,6 @@
 
 <script>
     import EnterDraw from './components/EnterDraw.vue'
-
     export default {
         name: 'App',
         components: {
