@@ -169,10 +169,12 @@
     <Content Include="App\src\App.vue" />
     <Content Include="App\src\assets\logo.png" />
     <Content Include="App\src\components\EnterDraw.vue" />
+    <Content Include="App\src\css\theme.styl" />
     <Content Include="App\src\css\validation.styl" />
     <Content Include="App\src\css\_main.styl" />
     <Content Include="App\src\main.js" />
     <Content Include="App\src\router.js" />
+    <Content Include="App\src\validators.js" />
     <Content Include="App\vue.config.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

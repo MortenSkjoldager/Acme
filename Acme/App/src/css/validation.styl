@@ -1,2 +1,14 @@
-.error
-  color red
+.validation-message.error
+  color $validation-error
+  display none
+
+.validation-message.valid
+  color $validation-valid
+
+form.dirty
+  .validation-message.error
+    display block
+    
+form.pristine
+  .validation-message.valid
+    display none
