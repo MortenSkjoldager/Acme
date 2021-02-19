@@ -5,5 +5,11 @@ Acme/bin/
 packages/
 Acme/obj/
 Acme.BusinessLogic/obj/
-*.cs
 Acme.BusinessLogic.Test/obj/
+*node_modules*
+/Acme.Runner/bin/*
+/Acme.BusinessLogic.Test/bin/*
+/Acme.Runner/obj/*
+/.vs/*
+/Acme/dist/*
+/Acme/App/dist/*
