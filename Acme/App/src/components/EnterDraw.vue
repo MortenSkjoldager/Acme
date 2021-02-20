@@ -17,13 +17,13 @@
     <!--    </div>-->
 
         <div>
-            <form class="" novalidate>
+            <form class="" novalidate @submit.prevent="submitForm">
                 <div>
                     <label for="firstName" class="form-label">First name</label>
-                    <input v-model="$v.form.firstName.$model" type="text" class="form-control" id="firstName"
+                    <input autocomplete="off" v-model="$v.form.firstName.$model" type="text" class="form-control" id="firstName"
                            :class="status($v.form.firstName)">
                     <div class="" v-if="!$v.form.firstName.required">Field is required</div>
-                    <div class="" v-if="!$v.form.firstName.serverError">Unique name pls</div>
+                    <div class="" v-if="!$v.form.firstName.uniqueMail">Unique name pls</div>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" v-on:click="submitForm($event)">Submit form</button>
@@ -36,15 +36,7 @@
 
     import {merge} from 'lodash'
     import {required, minLength} from 'vuelidate/lib/validators'
-
-    const serverError = function(fieldName) {
-        return (value, vm) => {
-            return !(
-                vm.hasOwnProperty("serverErrors") &&
-                vm.serverErrors.hasOwnProperty(fieldName)
-            );
-        };
-    };
+    import {uniqueMail} from "../validators";
     
     export default {
         name: 'EnterDraw',
@@ -53,48 +45,22 @@
                 form: {
                     firstName: ''
                 },
-                clientValidation: {
-                    form: {
-                        firstName: {
-                            required,
-                            serverError
-                        }
-                    }
-                },
-                serverValidation: {},
+                serverErrors: {}
             }
         },
-        computed: {
-            rules() {
-                return merge({}, this.serverValidation, this.clientValidation);
+        validations: {
+            form: {
+                firstName: { required, uniqueMail },
             }
-        },
-        validations() {
-            return this.clientValidation;
         },
         methods: {
-            submitForm: function (e) {
-                this.$v.$touch();
+            submitForm: function () {
+                this.$v.$touch()
                 // But clear server errors as they shouldn't prevent re-submission
-                this.clearServerErrors();
+                // this.$v.form.firstName.$error = true;
+                debugger;
 
-                const serverMessages = {
-                    serverErrors: {
-                        name: "The name field is invalid server-side"
-                    }
-                };
-
-                merge(this.form, serverMessages);
-
-                this.serverValidation = {
-                    form: {
-                        name: {
-                            serverError: serverError("nameField", false)
-                        }
-                    }
-                }
-                
-                e.preventDefault()
+                this.$v.form.firstName.serverError = false;
             },
             formState: function (validate) {
                 if (validate.$dirty) return ''
@@ -103,16 +69,6 @@
                 return {
                     error: validation.$error,
                     dirty: validation.$dirty
-                }
-            },
-            clearServerErrors: function () {
-                this.serverValidation = {}
-            },
-            clearServerError: function (model, fieldName) {
-                if (model.hasOwnProperty("serverErrors")) {
-                    if (model.serverErrors.hasOwnProperty(fieldName)) {
-                        delete model.serverErrors[fieldName]
-                    }
                 }
             }
         }

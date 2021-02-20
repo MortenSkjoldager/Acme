@@ -9,3 +9,7 @@ Acme.BusinessLogic/obj/
 Acme/App/node_modules/
 Acme.BusinessLogic.Test/obj/
 Acme/dist/
+/Acme.BusinessLogic.Test/bin/Debug/*
+/Acme.Runner/bin/Debug/*
+/Acme.Runner/obj/*
+*.vs*
