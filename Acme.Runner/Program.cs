@@ -29,7 +29,7 @@ namespace Acme.Runner
             }
 
             Console.WriteLine("Saving generated keys to text file.");
-            System.IO.File.WriteAllLines("c:\\tmp\\serialnumbers.txt", serialNumbers.Select(x => x.Key.ToString()));
+            System.IO.File.WriteAllLines($"c:\\tmp\\Serialnumbers-{DateTime.Now.Ticks}.txt", serialNumbers.Select(x => x.Key.ToString()));
             
             Console.WriteLine("Done.");
             Console.ReadLine();
