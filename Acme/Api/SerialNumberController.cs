@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using Acme.BusinessLogic.Services;
+using Acme.Model;
 
 namespace Acme.Api
 {
@@ -17,9 +18,9 @@ namespace Acme.Api
         [Route("api/serialnumber/validate/{serialNumber}")]
         public IHttpActionResult Validate([FromUri]Guid serialNumber)
         {
-            return Json(new
+            return Json(new SerialNumberValidationResultModel()
             {
-                valid = _serialNumberService.ValidateSerialNumber(serialNumber),
+                Valid = _serialNumberService.ValidateSerialNumber(serialNumber),
             });
         }
     }
