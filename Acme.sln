@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme", "Acme\Acme.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.BusinessLogic", "Acme.BusinessLogic\Acme.BusinessLogic.csproj", "{75443DA5-4184-43D6-8D37-2C94688F3C95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.BusinessLogic.Test", "Acme.BusinessLogic.Test\Acme.BusinessLogic.Test.csproj", "{DD250CB9-F195-4495-97F1-BBFED2139F6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acme.Runner", "Acme.Runner\Acme.Runner.csproj", "{270F62DB-08E4-4C63-8670-9876AF3DA477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{75443DA5-4184-43D6-8D37-2C94688F3C95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75443DA5-4184-43D6-8D37-2C94688F3C95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75443DA5-4184-43D6-8D37-2C94688F3C95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD250CB9-F195-4495-97F1-BBFED2139F6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD250CB9-F195-4495-97F1-BBFED2139F6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD250CB9-F195-4495-97F1-BBFED2139F6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD250CB9-F195-4495-97F1-BBFED2139F6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270F62DB-08E4-4C63-8670-9876AF3DA477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270F62DB-08E4-4C63-8670-9876AF3DA477}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270F62DB-08E4-4C63-8670-9876AF3DA477}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270F62DB-08E4-4C63-8670-9876AF3DA477}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
