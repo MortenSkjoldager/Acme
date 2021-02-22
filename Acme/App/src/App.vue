@@ -6,10 +6,12 @@
 
 <script>
     import EnterDraw from './components/EnterDraw.vue'
+    import Submissions from "./components/Submissions";
     export default {
         name: 'App',
         components: {
-            EnterDraw
+            EnterDraw,
+            Submissions
         }
     }
 </script>
