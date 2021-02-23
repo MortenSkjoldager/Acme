@@ -25,7 +25,7 @@
                 <div class="error validation-message" v-if="$v.form.serialNumber.required && $v.form.serialNumber.validSerial && !$v.form.serialNumber.validSubmissionKey">Serial number already used for submission twice</div>
             </div>
             <div class="col-12">
-                <button class="btn btn-primary" :disabled="$v.$invalid">Enter submission</button>
+                <button class="btn btn-primary" :disabled="$v.$invalid">Enter submission</button><span class="submissionMessage" :class="{ 'error': submissionStatus.error }">{{submissionStatus.message}}</span>
             </div>
         </form>
     </div>
@@ -46,6 +46,10 @@
                     lastName: '',
                     email: '',
                     serialNumber: ''
+                },
+                submissionStatus: {
+                    error: false,
+                    message: ''
                 }
             }
         },
@@ -65,7 +69,19 @@
                     Email: this.form.email,
                     SerialNumber: this.form.serialNumber
                 }).then(response => {
-                    
+                    if (response.data.Success) {
+                        this.form.firstName = ''
+                        this.form.lastName = ''
+                        this.form.email = ''
+                        this.form.serialNumber = ''
+                        this.$v.$reset()
+                        this.submissionStatus.message = 'Thank you for entering the submission'
+                    }
+                    else {
+                        this.submissionStatus.message = response.data.Message
+                        this.submissionStatus.error = true
+                    }
+
                 })
             },
             formState: function (validate) {
@@ -82,5 +98,8 @@
 </script>
 
 <style lang="stylus" scoped>
-
+    .submissionMessage 
+        color $validation-valid
+        .error 
+            color $validation-error
 </style>
