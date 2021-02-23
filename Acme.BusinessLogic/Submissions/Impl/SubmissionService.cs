@@ -48,8 +48,16 @@ namespace Acme.BusinessLogic.Submissions.Impl
             return queryResponse;
         }
 
-        public SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, Guid serialNumber)
+        public SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, int age, Guid serialNumber)
         {
+            if (age < 18)
+            {
+                return new SubmissionCreationResult()
+                {
+                    Success = false,
+                    Message = Constants.ErrorMessages.AgeLimit
+                };
+            }
             using (var databaseContext = _databaseContextProvider.GetDatabaseContext())
             {
                 var existingSerialNumber = databaseContext.SerialNumbers.FirstOrDefault(x => x.Key == serialNumber);
@@ -58,7 +66,7 @@ namespace Acme.BusinessLogic.Submissions.Impl
                     return new SubmissionCreationResult()
                     {
                         Success = false,
-                        Message = "No serial number found matching your entry."
+                        Message = Constants.ErrorMessages.InvalidKey
                     };
                 }
                     

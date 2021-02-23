@@ -11,6 +11,6 @@ namespace Acme.BusinessLogic.Submissions
 
         SubmissionQueryReponse GetSubmissions(int skip, int take);
 
-        SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, Guid serialNumber);
+        SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, int age, Guid serialNumber);
     }
 }
