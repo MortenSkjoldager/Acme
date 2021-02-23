@@ -13,6 +13,8 @@ namespace Acme.BusinessLogic.Model
         public string Email { get; set; }
         
         public SerialNumber SerialNumber { get; set; }
+        
+        public int Age { get; set; }
     }
 
     public class SerialNumber

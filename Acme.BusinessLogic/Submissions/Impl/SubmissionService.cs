@@ -85,6 +85,7 @@ namespace Acme.BusinessLogic.Submissions.Impl
                     Email = email,
                     FirstName = firstName,
                     LastName = lastName,
+                    Age = age,
                     SerialNumber = existingSerialNumber
                 });
 

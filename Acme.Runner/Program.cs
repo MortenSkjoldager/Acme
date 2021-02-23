@@ -44,6 +44,7 @@ namespace Acme.Runner
                 .RuleFor(x => x.FirstName, (f, u) => f.Name.FirstName())
                 .RuleFor(x => x.LastName, (f, u) => f.Name.LastName())
                 .RuleFor(x => x.Email, (f, u) => f.Internet.Email())
+                .RuleFor(x => x.Age, (f, u) => 18)
                 .Generate(5000);
 
             using(var context = new DatabaseContext())

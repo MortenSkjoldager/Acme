@@ -29,7 +29,7 @@ namespace Acme.Api
         [Route("api/submissions/create")]
         public IHttpActionResult Create(SubmissionRequestModel model)
         {
-            return Json(_submissionService.CreateSubmission(model.FirstName, model.LastName, model.Email, model.SerialNumber));
+            return Json(_submissionService.CreateSubmission(model.FirstName, model.LastName, model.Email, model.Age, model.SerialNumber));
         }
 
         [System.Web.Http.HttpGet]

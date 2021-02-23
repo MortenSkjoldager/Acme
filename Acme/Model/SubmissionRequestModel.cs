@@ -10,6 +10,8 @@ namespace Acme.Model
         
         public string Email { get; set; }
         
+        public int Age { get; set; }
+        
         public Guid SerialNumber { get; set; }
     }
 }

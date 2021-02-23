@@ -8,6 +8,7 @@
                 <th scope="col">First name</th>
                 <th scope="col">Last name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Age</th>
                 <th scope="col">Serial</th>
             </tr>
             </thead>
@@ -16,6 +17,7 @@
                     <td>{{submission.FirstName}}</td>
                     <td>{{submission.LastName}}</td>
                     <td>{{submission.Email}}</td>
+                    <td>{{submission.Age}}</td>
                     <td>{{submission.SerialNumber.Key}}</td>
 
                 </tr>

@@ -18,6 +18,12 @@
                 <div class="error validation-message" v-if="!$v.form.email.email">Please enter a valid email.</div>
             </div>
             <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <input autocomplete="off" v-model="$v.form.age.$model" type="number" class="form-control" id="age" :class="status($v.form.age)">
+                <div class="error validation-message" v-if="!$v.form.age.required">Please enter your age</div>
+                <div class="error validation-message" v-if="!$v.form.age.minimumAge">You need to be at least 18 years old to participate.</div>
+            </div>
+            <div class="mb-3">
                 <label for="serialNumber" class="form-label">Serial Number</label>
                 <input autocomplete="off" v-model="$v.form.serialNumber.$model" type="text" class="form-control" id="serialNumber" :class="status($v.form.serialNumber)">
                 <div class="error validation-message" v-if="!$v.form.serialNumber.required">Field is required</div>
@@ -35,7 +41,7 @@
 
     import axios from "axios";
     import {required, email} from 'vuelidate/lib/validators'
-    import {validSerial, validSubmissionKey} from "../validators";
+    import {validSerial, validSubmissionKey, minimumAge} from "../validators";
     
     export default {
         name: 'EnterDraw',
@@ -45,6 +51,7 @@
                     firstName: '',
                     lastName: '',
                     email: '',
+                    age: 0,
                     serialNumber: ''
                 },
                 submissionStatus: {
@@ -58,6 +65,7 @@
                 firstName: {required},
                 lastName: {required},
                 email: {required, email},
+                age: {minimumAge, required},
                 serialNumber: { required, validSerial, validSubmissionKey },
             }
         },
@@ -67,11 +75,13 @@
                     FirstName: this.form.firstName,
                     LastName: this.form.lastName,
                     Email: this.form.email,
+                    Age: this.form.age,
                     SerialNumber: this.form.serialNumber
                 }).then(response => {
                     if (response.data.Success) {
                         this.form.firstName = ''
                         this.form.lastName = ''
+                        this.form.age = ''
                         this.form.email = ''
                         this.form.serialNumber = ''
                         this.$v.$reset()
