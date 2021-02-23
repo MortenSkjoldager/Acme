@@ -36,7 +36,7 @@ namespace Acme.Api
         [Route("api/submissions/get/{skip}/{take}")]
         public IHttpActionResult GetSubmissions(int skip, int take)
         {
-            return Json(new {});
+            return Json(_submissionService.GetSubmissions(skip, take));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Acme.BusinessLogic.DataAccess;
 using Acme.BusinessLogic.Model;
@@ -21,9 +22,19 @@ namespace Acme.BusinessLogic.Submissions.Impl
             return activationCount;
         }
 
-        public IList<Submission> GetSubmissions(int skip, int take)
+        public SubmissionQueryReponse GetSubmissions(int skip, int take)
         {
-            throw new NotImplementedException();
+            var queryResponse = new SubmissionQueryReponse();
+            queryResponse.Skip = skip;
+            queryResponse.Take = take;
+            
+            using (var databaseContext = new DatabaseContext())
+            {
+                queryResponse.TotalCount = databaseContext.Submissions.Count();
+                queryResponse.Submissions = databaseContext.Submissions.OrderBy(x => x.Id).Skip(skip).Take(take).Include(x => x.SerialNumber).ToList();
+            }
+            
+            return queryResponse;
         }
 
         public SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, Guid serialNumber)

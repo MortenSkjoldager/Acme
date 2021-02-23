@@ -9,7 +9,7 @@ namespace Acme.BusinessLogic.Submissions
     {
         int GetActivationCount(Guid guid);
 
-        IList<Submission> GetSubmissions(int skip, int take);
+        SubmissionQueryReponse GetSubmissions(int skip, int take);
 
         SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, Guid serialNumber);
     }
