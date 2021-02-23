@@ -88,7 +88,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\ErrorMessages.cs" />
     <Compile Include="DataAccess\DatabaseContext.cs" />
+    <Compile Include="DataAccess\IDatabaseContextProvider.cs" />
+    <Compile Include="DataAccess\Impl\DatabaseContextProvider.cs" />
     <Compile Include="DependencyInjection\BusinessLogicInstaller.cs" />
     <Compile Include="DependencyInjection\Container.cs" />
     <Compile Include="Model\Submission.cs" />

@@ -6,9 +6,9 @@ namespace Acme.BusinessLogic.DataAccess
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<Submission> Submissions { get; set; }
+        public virtual DbSet<Submission> Submissions { get; set; }
 
-        public DbSet<SerialNumber> SerialNumbers { get; set; }
+        public virtual DbSet<SerialNumber> SerialNumbers { get; set; }
 
         public DatabaseContext() : base("DatabaseContext")
         {

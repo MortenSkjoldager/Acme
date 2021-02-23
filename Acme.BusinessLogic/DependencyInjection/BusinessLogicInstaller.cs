@@ -12,6 +12,11 @@ namespace Acme.BusinessLogic.DependencyInjection
                 .Pick().If(t => t.Name.EndsWith("Service"))
                 .WithService.DefaultInterfaces()
                 .Configure(configurer => configurer.Named(configurer.Implementation.Name)));
+            
+            container.Register(Classes.FromThisAssembly()
+                .Pick().If(t => t.Name.EndsWith("Provider"))
+                .WithService.DefaultInterfaces()
+                .Configure(configurer => configurer.Named(configurer.Implementation.Name)));
         }
     }
 }

@@ -15,6 +15,12 @@ namespace Acme.BusinessLogic.DependencyInjection
 		private static object _padlock = new object();
 
 		public static IWindsorContainer Instance => _container;
+
+		public static void AddChildContainer(WindsorContainer childContainer)
+		{
+			Instance.AddChildContainer(childContainer);
+			_container = childContainer;
+		}
 		
 		public static void Initialize()
 		{
