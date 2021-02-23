@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <div class="submissions">
         <h1>Submissions</h1>
 
-        <table class="table">
+        <table class="table" v-infinite-scroll="loadData" infinite-scroll-distance="10">
             <thead>
             <tr>
                 <th scope="col">First name</th>
@@ -38,19 +38,27 @@
             }
         },
         mounted() {
-            axios.get(`api/submissions/get/${this.skip}/${this.take}`)
-                .then(response => {
-                    this.submissions = response.data.Submissions
-                    this.totalCount = response.data.TotalCount
-                    this.skip = this.skip + this.take
-                    this.skip = 10 //load more to begin with and then set it to 10 
-                });
+            this.loadData()
         },
 
-        methods: {}
+        methods: {
+            loadData: function() {
+                axios.get(`api/submissions/get/${this.skip}/${this.take}`)
+                    .then(response => {
+                        //this.submissions.concat(response.data.Submissions)
+                        this.submissions = this.submissions.concat(response.data.Submissions)
+
+                        this.totalCount = response.data.TotalCount
+                        this.skip = this.skip + this.take
+                        this.take = 10 //load more to begin with and then set it to 10 
+                    });
+            }
+        },
+        
     }
 </script>
 
 <style lang="stylus" scoped>
-
+    main
+        overflow-y auto
 </style>

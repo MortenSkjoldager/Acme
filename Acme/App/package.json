@@ -16,6 +16,7 @@
     "popper.js": "^1.16.1",
     "style-resources-loader": "^1.4.1",
     "vue": "^2.6.11",
+    "vue-infinite-scroll": "^2.0.2",
     "vue-router": "^3.5.1",
     "vuelidate": "^0.7.6"
   },

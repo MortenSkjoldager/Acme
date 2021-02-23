@@ -31,7 +31,12 @@ namespace Acme.BusinessLogic.Submissions.Impl
             using (var databaseContext = new DatabaseContext())
             {
                 queryResponse.TotalCount = databaseContext.Submissions.Count();
-                queryResponse.Submissions = databaseContext.Submissions.OrderBy(x => x.Id).Skip(skip).Take(take).Include(x => x.SerialNumber).ToList();
+                queryResponse.Submissions = databaseContext.Submissions
+                    .OrderByDescending(x => x.Id)
+                    .Skip(skip)
+                    .Take(take)
+                    .Include(x => x.SerialNumber)
+                    .ToList();
             }
             
             return queryResponse;
@@ -39,8 +44,6 @@ namespace Acme.BusinessLogic.Submissions.Impl
 
         public SubmissionCreationResult CreateSubmission(string firstName, string lastName, string email, Guid serialNumber)
         {
-            var result = new SubmissionCreationResult();
-            
             using (var context = new DatabaseContext())
             {
                 var existingSerialNumber = context.SerialNumbers.FirstOrDefault(x => x.Key == serialNumber);
