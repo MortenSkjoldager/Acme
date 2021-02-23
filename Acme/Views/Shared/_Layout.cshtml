@@ -1,11 +1,44 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/dist/app.css")
 </head>
 <body>
-    @RenderBody()
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-start">
+            <a href="/" class="navbar-brand">
+                <strong>
+                    <i class="fa fa-home"></i>
+                    Home
+                </strong>
+            </a>
+            <ul class="navbar-nav flex-grow-1 flex-row">
+                <li class="nav-item p-2">
+                    <a class="nav-link" href="/enter">
+                        <strong>
+                            Enter draw
+                        </strong>
+                    </a>
+                </li>
+                <li class="nav-item p-2">
+                    <a class="nav-link" href="/submissions">
+                        <strong>
+                            Submissions
+                        </strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="container">
+        @RenderBody()
+    </div>
+</main>
 </body>
 </html>

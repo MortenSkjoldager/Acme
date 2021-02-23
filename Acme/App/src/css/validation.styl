@@ -1,0 +1,18 @@
+.validation-message.error
+  color $validation-error
+  display none
+
+.validation-message.valid
+  color $validation-valid
+
+form.dirty
+  input.form-control.dirty 
+    border 1px solid $validation-valid
+  .validation-message.error
+    display block
+  input.form-control.dirty.error
+    border 1px solid $validation-error
+    
+form.pristine
+  .validation-message.valid
+    display none
